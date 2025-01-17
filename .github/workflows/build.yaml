@@ -1,0 +1,20 @@
+name: Build & release
+on: push
+
+jobs:
+  build:
+    name: Build typst document
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: lvignoli/typst-action@main
+        with:
+          source_file: slides.typ
+      - uses: actions/upload-artifact@v4
+        with:
+          name: slides
+          path: slides.pdf
+      - uses: softprops/action-gh-release@v2
+        if: github.ref_type == 'tag' && startsWith(github.ref_name, 'v')
+        with:
+          files: slides.pdf
