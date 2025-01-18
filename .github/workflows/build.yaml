@@ -11,7 +11,7 @@ jobs:
         run: |
           wget https://github.com/notofonts/noto-cjk/releases/download/Serif2.003/09_NotoSerifCJKsc.zip
           unzip 09_NotoSerifCJKsc.zip -x LICENSE
-          cp 09_NotoSerifCJKsc/OTF/SimplifiedChinese/* ~/.local/share/fonts
+          cp OTF/SimplifiedChinese/* ~/.local/share/fonts
           fc-cache -fv
       - uses: lvignoli/typst-action@main
         with:
