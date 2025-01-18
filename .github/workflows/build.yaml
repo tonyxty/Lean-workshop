@@ -9,8 +9,8 @@ jobs:
       - uses: actions/checkout@v4
       - name: Install Chinese fonts
         run: |
-          wget https://github.com/notofonts/noto-cjk/releases/download/Serif2.003/09_NotoSerifCJKsc.zip
-          unzip 09_NotoSerifCJKsc.zip -x LICENSE
+          wget https://github.com/notofonts/noto-cjk/releases/download/Sans2.004/08_NotoSansCJKsc.zip
+          unzip 08_NotoSansCJKsc.zip -x LICENSE
       - uses: typst-community/setup-typst@v3
       - run: typst compile --font-path OTF/SimplifiedChinese slides.typ
       - uses: actions/upload-artifact@v4
