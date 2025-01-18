@@ -11,12 +11,8 @@ jobs:
         run: |
           wget https://github.com/notofonts/noto-cjk/releases/download/Serif2.003/09_NotoSerifCJKsc.zip
           unzip 09_NotoSerifCJKsc.zip -x LICENSE
-      - uses: lvignoli/typst-action@main
-        with:
-          source_file: slides.typ
-          options: |
-            --font-path
-            OTF/SimplifiedChinese
+      - uses: typst-community/setup-typst@v3
+      - run: typst compile --font-path OTF/SimplifiedChinese slides.typ
       - uses: actions/upload-artifact@v4
         with:
           name: slides
