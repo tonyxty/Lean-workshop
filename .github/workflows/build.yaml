@@ -12,7 +12,7 @@ jobs:
           wget https://github.com/notofonts/noto-cjk/releases/download/Sans2.004/08_NotoSansCJKsc.zip
           unzip 08_NotoSansCJKsc.zip -x LICENSE
       - uses: typst-community/setup-typst@v3
-      - run: typst compile --font-path OTF/SimplifiedChinese slides.typ
+      - run: typst compile --font-path . slides.typ
       - uses: actions/upload-artifact@v4
         with:
           name: slides
