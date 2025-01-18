@@ -7,9 +7,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: lvignoli/typst-action@main
-        with:
-          source_file: slides.typ
+      - name: Install Chinese fonts
+        run: |
+          wget -q https://github.com/notofonts/noto-cjk/releases/download/Sans2.004/08_NotoSansCJKsc.zip
+          unzip 08_NotoSansCJKsc.zip -x LICENSE
+      - uses: typst-community/setup-typst@v3
+      - run: typst compile --font-path . slides.typ
       - uses: actions/upload-artifact@v4
         with:
           name: slides
